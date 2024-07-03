@@ -11,13 +11,20 @@ import windy from "../Pics/windy.jpg"
 import foggy from "../Pics/foggy.jpg"
 import humid from "../Pics/humid.jpg"
 import clear2 from "../Pics/clear-2.jpg"
-import {weather} from "../Wcontext"
-import { fetchData } from '../Weather';
+import {weather} from "../contexts/Wcontext"
+import Weather, { fetchData } from '../Weather';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Data } from '../contexts/DataContext';
+import { Error } from '../contexts/ErrorContext';
 const HomePage = () => {
     
     const [value, setValue] = useState("");
     const [city,setCity] = useContext(weather);
+    const [data,setData]= useContext(Data);
     const [showElement, setShowElement] = useState(false);
+    const [error,setError]=useContext(Error)
+    //const [data,setData]=useContext(Data);
     useEffect(() => {
         const handleScroll = () => {
           const scrollThreshold =700;
@@ -36,10 +43,24 @@ const HomePage = () => {
         };
       }, []);
        const HandleClick=(value)=>{
-        const weatherData = fetchData(value);
-        console.log(weatherData)
+        const weatherData = fetchData(value,setError);
+        
+        weatherData.then(json=>{
+            setData(json);
+            console.log(json);
+            
+           
+        })
+        
+
 
        }
+       AOS.init({
+        duration: 2000, // animation duration in milliseconds
+        /*once: false, // whether animation should happen only once - while scrolling down*/
+        easing: 'ease-in-out', // easing function for the animation
+        
+      });
   return (
     <div className='Home' /*style={{height:'500px'}}*/>
         <div className='container' >
@@ -83,7 +104,7 @@ const HomePage = () => {
             </div>
         </div>
        
-        <div className={`container-2 ${showElement ? 'visible' : ''}`}>
+        <div data-aos="fade" /*className={`container-2 ${showElement ? 'visible' : ''}`}*/ className='container-2'>
             
             <div className='pic-div'>
                 <form className='form'>
@@ -107,6 +128,9 @@ const HomePage = () => {
                     >Search
                     </button>
                 </form>
+                <div className='display'>
+                    <Weather />
+                </div>
                 <img src={clear2} className='pic'></img>
             </div>
            

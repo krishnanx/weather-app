@@ -1,0 +1,19 @@
+.DATA{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:650px;
+    height:500px;
+}
+.main-w{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    width:600px;
+    height: 100px;
+}
+.icons{
+    width: 50px;
+    height: 50px;
+}
