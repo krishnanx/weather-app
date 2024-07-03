@@ -9,9 +9,37 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    width:600px;
-    height: 100px;
+    justify-content: space-between;
+    width:500px;
+    height: 200px;
+}
+.right{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width:100px;
+    height:100px;;
+}
+.cityName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:40px;
+}
+.cityNameDiv{
+    width:100px;
+    height:50px;
+}
+.temp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height: 50px;;
+}
+.temp p{
+    font-size: 30px;
 }
 .icons{
     width: 50px;

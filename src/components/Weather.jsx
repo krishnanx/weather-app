@@ -12,11 +12,11 @@ export const fetchData=async(myCity,setError)=>{
       const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${myCity}&aqi=yes`)
       const json = response.data;
       //console.log(json)
-      setError(false);
+      setError('active');
       return response.data;
       
     } catch (error) {
-      setError(true);
+      setError('error');
       console.log("LOL")
       console.log(error.message)
       console.log("LOL")
@@ -24,6 +24,8 @@ export const fetchData=async(myCity,setError)=>{
   
 }
 const Weather = () => {
+    let content = null;
+    let image = null;
     const [city,setCity]=useContext(weather)
     const [data,setData]=useContext(Data)
     const [error,setError]=useContext(Error);
@@ -46,12 +48,41 @@ const Weather = () => {
     //     }
     //     fetchData();
     //    },)
-       
+    switch (error) {
+      case 'loading':
+        content = <p>Loading...</p>;
+        break;
+      case 'error':
+        content = <p>Error loading data.</p>;
+        break;
+      case 'active':
+        content = (
+          <>
+            <div className='right'>
+              <div className='cityNameDiv'>
+                <h1 className='cityName'>
+                  {data.location.name}
+                </h1>
+              </div>
+              <div className='temp'>
+                <p>{data.current.temp_c}°C</p>
+              </div>
+            </div>
+        
+          </>
+        );
+        break;
+      default:
+        content = <p>Unknown status.</p>;
+        break;
+    }
+   
+    
   return (
     <div className='DATA'>
       <div className='main-w'>
-        <img className="icons" src={icon}/>
-        {error?<p></p>:<p>{data.location.name}</p>}
+        {image}
+        {content}
       </div>
         
     </div>

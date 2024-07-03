@@ -1,7 +1,7 @@
 import React,{createContext, useState} from 'react'
 export const Error = createContext();
 const ErrorContext = ({children}) => {
-    const[error,setError] =useState(true);
+    const[error,setError] =useState('loading');
     
   return (
     <div>
