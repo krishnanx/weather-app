@@ -5,19 +5,23 @@ import Navbar from './components/Navbar/Navbar'
 import Wcontext from './components/contexts/Wcontext'
 import DataContext from './components/contexts/DataContext'
 import ErrorContext from './components/contexts/ErrorContext'
+import IconContext from './components/contexts/IconContext'
 function App() {
   
 
   return (
    <div>
-    <ErrorContext>
-      <DataContext>
-        <Wcontext >
-          <Navbar/>
-          <Landing/>
-        </Wcontext>
-      </DataContext>
-    </ErrorContext>
+    <IconContext>
+      <ErrorContext>
+        <DataContext>
+          <Wcontext >
+            <Navbar/>
+            <Landing/>
+          </Wcontext>
+        </DataContext>
+      </ErrorContext>
+    </IconContext>
+   
     
    
       

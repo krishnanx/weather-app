@@ -24,6 +24,12 @@ const HomePage = () => {
     const [data,setData]= useContext(Data);
     const [showElement, setShowElement] = useState(false);
     const [error,setError]=useContext(Error)
+    const themeStyle={
+        backgroundColor:error===null?'none': error?'white' :'black',
+        opacity:error===null?'none': error?'0' :'0.5',
+        //border:error===null?'none': error?'none' :'solid',
+        transition:error===null?'none': error?'none' :'transform 3s ease-in-out,opacity 1s'
+    }
     //const [data,setData]=useContext(Data);
     useEffect(() => {
         const handleScroll = () => {
@@ -61,6 +67,29 @@ const HomePage = () => {
         easing: 'ease-in-out', // easing function for the animation
         
       });
+      switch (error) {
+        case null:
+            var content=null;
+            content = <p></p>;
+            break;
+        case 'error':
+            content = <p>Enter correct city</p>;
+             break;
+        case 'active':
+            content=null
+            content = (
+            <>
+             
+          
+            </>
+          );
+          break;
+        default:
+            content=null
+            content = <p>Unknown status.</p>;
+            break;
+      }
+
   return (
     <div className='Home' /*style={{height:'500px'}}*/>
         <div className='container' >
@@ -105,6 +134,14 @@ const HomePage = () => {
         </div>
        
         <div data-aos="fade" /*className={`container-2 ${showElement ? 'visible' : ''}`}*/ className='container-2'>
+            <div className='column-1'>
+                <div className='card-3' style={themeStyle}>
+
+                </div>
+                <div className='card-3' style={themeStyle}>
+
+                </div>
+            </div>
             
             <div className='pic-div'>
                 <form className='form'>
@@ -133,6 +170,15 @@ const HomePage = () => {
                 </div>
                 <img src={clear2} className='pic'></img>
             </div>
+            <div className='column-3'>
+                <div className='card-3' style={themeStyle}>
+
+                </div>
+                <div className='card-3' style={themeStyle}>
+
+                </div>
+            </div>
+            
            
            
                 
