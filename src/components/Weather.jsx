@@ -96,7 +96,7 @@ const Weather = () => {
         
           </>
         );
-        image=<img src={wlogo[code][timing]}/>
+        image=<img className="Wimg" src={wlogo[code][timing]}/>
         feel=(
           <>
             <span className='feels' style={themeStyle}>
@@ -105,6 +105,18 @@ const Weather = () => {
             </span>
           </>
           )
+        uv=(
+          <>
+            <span className='uv' style={themeStyle}> 
+              <p className='uv-p'>
+                UV Index
+              </p>
+              <p className='uv-value'>
+                {data.current.uv}
+              </p>
+            </span>
+          </>
+        )
         break;
       default:
         content = <p>Unknown status.</p>;

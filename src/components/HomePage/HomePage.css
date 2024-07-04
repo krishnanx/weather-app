@@ -251,8 +251,8 @@
     height: 500px;
   }
 .card-3{
-    display:flex;
-    opacity: 0;
+    display: flex;
+    justify-content: center;
     border-radius: 30px;
     width:200px;
     height:170px;
@@ -274,4 +274,89 @@
     align-items: center;
     height:500px;
     width:400px;
+}
+.aqi-div{
+    display: flex;
+    flex-direction:column ;
+    justify-content:space-evenly;
+    border-radius: 30px;
+    align-items: center;
+    width:100%;
+    height:100%;
+    z-index:5;
+}
+.aqi{
+    color: white;
+    text-align: center;
+    font-weight:600;
+    font-size: 30px;
+    width:50%;
+    height:40px;
+    z-index:20;
+}
+.CO{
+    color: white;
+    font-weight:600;
+    font-size: 20px;
+    z-index:10;
+}
+.PM2_5{
+    color: white;
+    font-weight:600;
+    font-size: 20px;
+    z-index:10;
+}
+.pm10{
+    color: white;
+    font-weight:600;
+    font-size: 20px;
+    z-index:10;
+}
+.wind_div{
+    display: flex;
+    flex-direction:column ;
+    justify-content:space-evenly;
+    border-radius: 30px;
+    align-items: center;
+    width:100%;
+    height:100%;
+    z-index:5;
+}
+
+.wind{
+    color: white;
+    font-weight:600;
+    font-size:30px;
+    z-index:10;
+}
+.speed{
+    color: white;
+    font-weight:600;
+    font-size: 20px;
+    z-index:10;
+}
+.S{
+    position: fixed;
+    left:1250px;;
+    width: 80px;
+}
+.speed_div{
+    display: flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items: center;
+    width:200px;
+    height:70px;
+}
+.speed_img{
+    margin-right: 20px;
+    width:50px;
+    height: 50px;
+    transition: 0.5s ease-in-out;
+}
+.speed_img:hover{
+    width:60px;
+    height: 60px;
+    
+
 }

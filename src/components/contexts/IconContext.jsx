@@ -1,7 +1,8 @@
 import React,{createContext, useState} from 'react'
 export const Icon = createContext();
 import Sunny from "../../assets/weatherIcons/Sunny.png"
-import Mist from "../../assets/weatherIcons/Mist.png"
+import SMist from "../../assets/weatherIcons/SMist.png"
+import NMist from "../../assets/weatherIcons/Nmist.png"
 import NCloudy from "../../assets/weatherIcons/NCloudy.png"
 import Rain from "../../assets/weatherIcons/Rain.png"
 import Moon from "../../assets/weatherIcons/Moon.png"
@@ -16,7 +17,7 @@ const IconContext = ({children}) => {
             1003: { day: SCloudy, night: NCloudy },
             1006: { day: SCloudy, night: NCloudy },
             1009: { day: SCloudy, night: NCloudy },
-            1030: { day: Mist, night: Mist },
+            1030: { day: SMist, night: NMist },
             1063: { day: 'Patchy rain possible', night: 'Patchy rain possible' },
             1066: { day: 'Patchy snow possible', night: 'Patchy snow possible' },
             1069: { day: 'Patchy sleet possible', night: 'Patchy sleet possible' },
@@ -24,7 +25,7 @@ const IconContext = ({children}) => {
             1087: { day: ThunderStorm, night: ThunderStorm },
             1114: { day: 'Blowing snow', night: 'Blowing snow' },
             1117: { day: 'Blizzard', night: 'Blizzard' },
-            1135: { day: Mist, night: Mist },
+            1135: { day: SMist, night: NMist },
             1147: { day: 'Freezing fog', night: 'Freezing fog' },
             1150: { day: 'Patchy light drizzle', night: 'Patchy light drizzle' },
             1153: { day: 'Light drizzle', night: 'Light drizzle' },

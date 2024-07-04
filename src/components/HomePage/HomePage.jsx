@@ -17,13 +17,60 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Data } from '../contexts/DataContext';
 import { Error } from '../contexts/ErrorContext';
+import North from "../../assets/weatherIcons/north.png"
+import West from "../../assets/weatherIcons/west.png"
+import East from "../../assets/weatherIcons/east.png"
+import South from "../../assets/weatherIcons/south.png"
+import Northwest from "../../assets/weatherIcons/northwest.png"
+import Northeast from "../../assets/weatherIcons/northeast.png"
+import Southeast from "../../assets/weatherIcons/Southeast.png"
+import Southwest from "../../assets/weatherIcons/Southwest.png"
 const HomePage = () => {
-    
+    let aqi=null;
+    let content=null;
+    let wind=null;
+    let dir=null;
     const [value, setValue] = useState("");
+    const [direction,setDirection]=useState({
+        N:North,
+        E:East,
+        W:West,
+        S:South,
+        NE:Northeast,
+        NW:Northwest,
+        SE:Southeast,
+        SW:Southwest,
+        NNE:Northeast,
+        NNW:Northwest,
+        ENE:Northeast,
+        ESE:Southeast,
+        SSE:Southeast,
+        SSW:Southwest,
+        WSW:Southwest,
+        WNW:Northwest
+        
+    })
+    const [directionName, setDirectionName] = useState({
+        N: 'North',
+        E: 'East',
+        W: 'West',
+        S: 'South',
+        NE: 'Northeast',
+        NW: 'Northwest',
+        NNE: 'North-Northeast',
+        NNW: 'North-Northwest',
+        ENE: 'East-Northeast',
+        ESE: 'East-Southeast',
+        SSE: 'South-Southeast',
+        SSW: 'South-Southwest',
+        WSW: 'West-Southwest',
+        WNW: 'West-Northwest'
+    });
+
     const [city,setCity] = useContext(weather);
     const [data,setData]= useContext(Data);
     const [showElement, setShowElement] = useState(false);
-    const [error,setError]=useContext(Error)
+    const [error,setError]=useContext(Error);
     const themeStyle={
         backgroundColor:error===null?'none': error?'white' :'black',
         opacity:error===null?'none': error?'0' :'0.5',
@@ -69,20 +116,49 @@ const HomePage = () => {
       });
       switch (error) {
         case null:
-            var content=null;
-            content = <p></p>;
             break;
-        case 'error':
-            content = <p>Enter correct city</p>;
-             break;
-        case 'active':
-            content=null
-            content = (
+        case true:
+            break;
+        case false:
+            aqi = (
             <>
-             
+                <span className='aqi-div' style={themeStyle}>
+                    <p className='aqi'>
+                        AQI 
+                    </p>
+                    <p className='CO'>
+                        CO: {data.current.air_quality.co}
+                    </p>
+                    <p className='PM2_5'>
+                        PM2.5: {data.current.air_quality.pm2_5}
+                    </p>
+                    <p className='pm10'>
+                        PM10: {data.current.air_quality.pm10}
+                    </p>
+                </span>
           
             </>
           );
+          wind=(
+            <>
+            <span className='wind_div' style={themeStyle}>
+                <p className='wind'>
+                    {directionName[data.current.wind_dir]}
+                </p>
+                <div className='speed_div'>
+                    <div className='S'>
+                        <p className='speed'>{data.current.wind_kph}</p>
+                        <p className='speed'>
+                        KMPH
+                        </p>
+                    </div>
+                    <img className="speed_img" src={direction[data.current.wind_dir]}/>
+
+                    
+                </div>
+            </span>
+            </>
+          )
           break;
         default:
             content=null
@@ -135,10 +211,10 @@ const HomePage = () => {
        
         <div data-aos="fade" /*className={`container-2 ${showElement ? 'visible' : ''}`}*/ className='container-2'>
             <div className='column-1'>
-                <div className='card-3' style={themeStyle}>
-
+                <div className='card-3'>
+                    {aqi}
                 </div>
-                <div className='card-3' style={themeStyle}>
+                <div className='card-3'>
 
                 </div>
             </div>
@@ -171,10 +247,10 @@ const HomePage = () => {
                 <img src={clear2} className='pic'></img>
             </div>
             <div className='column-3'>
-                <div className='card-3' style={themeStyle}>
-
+                <div className='card-3'>
+                    {wind}
                 </div>
-                <div className='card-3' style={themeStyle}>
+                <div className='card-3'>
 
                 </div>
             </div>
