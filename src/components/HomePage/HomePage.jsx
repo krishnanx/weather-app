@@ -25,10 +25,13 @@ import Northwest from "../../assets/weatherIcons/northwest.png"
 import Northeast from "../../assets/weatherIcons/northeast.png"
 import Southeast from "../../assets/weatherIcons/Southeast.png"
 import Southwest from "../../assets/weatherIcons/Southwest.png"
+import P from "../../assets/weatherIcons/pressure.png"
 const HomePage = () => {
     let aqi=null;
     let content=null;
     let wind=null;
+    let humid=null;
+    let pressure=null;
     let dir=null;
     const [value, setValue] = useState("");
     const [direction,setDirection]=useState({
@@ -159,6 +162,34 @@ const HomePage = () => {
             </span>
             </>
           )
+          humid=(
+            <>
+                <span className="humid-div" style={themeStyle}>
+                    <p className='humid'>
+                        Humidity
+                    </p>
+                    <p className='humid-value'>
+                        {data.current.humidity}%
+                    </p>
+                </span>
+            </>
+          )
+          pressure=(
+            <>
+                <span className='pressure-div' style={themeStyle}>
+                   <p className='pressure'>
+                        Pressure(mb)
+                   </p>
+                   <div className='pressure-img-div'>
+                    <p className='pressure-value'>
+                            {data.current.pressure_mb}
+                    </p>
+                    <img src={P}/>
+                   </div>
+                  
+                </span>
+            </>
+          )
           break;
         default:
             content=null
@@ -215,7 +246,7 @@ const HomePage = () => {
                     {aqi}
                 </div>
                 <div className='card-3'>
-
+                    {humid}
                 </div>
             </div>
             
@@ -251,7 +282,7 @@ const HomePage = () => {
                     {wind}
                 </div>
                 <div className='card-3'>
-
+                    {pressure}
                 </div>
             </div>
             

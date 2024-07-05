@@ -10,6 +10,7 @@ import SCloudy from "../../assets/weatherIcons/SCloudy.png"
 import Snowy from "../../assets/weatherIcons/Snowy.png"
 import SSlightRain from "../../assets/weatherIcons/SSlightRain.png"
 import ThunderStorm from "../../assets/weatherIcons/ThunderStorm.png"
+import Freezingrain from "../../assets/weatherIcons/Freezingrain.png"
 const IconContext = ({children}) => {
     const [wlogo,setWlogo]=useState(
         {
@@ -18,20 +19,20 @@ const IconContext = ({children}) => {
             1006: { day: SCloudy, night: NCloudy },
             1009: { day: SCloudy, night: NCloudy },
             1030: { day: SMist, night: NMist },
-            1063: { day: 'Patchy rain possible', night: 'Patchy rain possible' },
+            1063: { day: Rain, night: 'Patchy rain possible' },
             1066: { day: 'Patchy snow possible', night: 'Patchy snow possible' },
             1069: { day: 'Patchy sleet possible', night: 'Patchy sleet possible' },
             1072: { day: 'Patchy freezing drizzle possible', night: 'Patchy freezing drizzle possible' },
             1087: { day: ThunderStorm, night: ThunderStorm },
-            1114: { day: 'Blowing snow', night: 'Blowing snow' },
-            1117: { day: 'Blizzard', night: 'Blizzard' },
+            1114: { day: Snowy, night: Snowy },
+            1117: { day: Snowy, night: Snowy },
             1135: { day: SMist, night: NMist },
             1147: { day: 'Freezing fog', night: 'Freezing fog' },
             1150: { day: 'Patchy light drizzle', night: 'Patchy light drizzle' },
             1153: { day: 'Light drizzle', night: 'Light drizzle' },
             1168: { day: 'Freezing drizzle', night: 'Freezing drizzle' },
             1171: { day: 'Heavy freezing drizzle', night: 'Heavy freezing drizzle' },
-            1180: { day: 'Patchy light rain', night: 'Patchy light rain' },
+            1180: { day: Rain, night: Rain },
             1183: { day: Rain, night: Rain },
             1186: { day: Rain, night: Rain },
             1189: { day: Rain, night: Rain },
