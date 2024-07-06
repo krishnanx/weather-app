@@ -11,7 +11,7 @@ import { Icon } from './contexts/IconContext';
 
 export const fetchData=async(myCity,setError)=>{
   try {
-      const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${myCity}&aqi=yes`);
+      const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${myCity}&aqi=yes`);
       console.log(response)
       const json = response.data;
       //console.log(json)
