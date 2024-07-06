@@ -1,5 +1,5 @@
 import React,{useState,useEffect, useContext} from 'react'
-import Zoom from 'react-reveal/Zoom';
+
 import Typewriter from 'typewriter-effect';
 import './HomePage.css'
 import clear from "../Pics/clear.jpg"
