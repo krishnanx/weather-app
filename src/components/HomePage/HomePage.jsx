@@ -9,7 +9,7 @@ import thunder from "../Pics/thunder.jpg"
 import snowy from "../Pics/snowy.jpg"
 import windy from "../Pics/windy.jpg"
 import foggy from "../Pics/foggy.jpg"
-import humid from "../Pics/humid.jpg"
+import humidity from "../Pics/humid.jpg"
 import clear2 from "../Pics/clear-2.jpg"
 import {weather} from "../contexts/Wcontext"
 import Weather, { fetchData } from '../Weather';
@@ -156,8 +156,6 @@ const HomePage = () => {
                         </p>
                     </div>
                     <img className="speed_img" src={direction[data.current.wind_dir]}/>
-
-                    
                 </div>
             </span>
             </>
@@ -217,7 +215,7 @@ const HomePage = () => {
                     <img src={cloudy} className='size-2'></img>
                 </div>
                 <div className='weather-1'>
-                    <img src={humid} className='size-3'></img>
+                    <img src={humidity} className='size-3'></img>
                 </div>
                 <div className='weather-1'>
                     <img src={snowy} className='size-4'></img>
