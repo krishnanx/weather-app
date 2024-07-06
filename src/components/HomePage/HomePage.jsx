@@ -60,6 +60,8 @@ const HomePage = () => {
         S: 'South',
         NE: 'Northeast',
         NW: 'Northwest',
+        SE:'Southeast',
+        SW:'Southwest',
         NNE: 'North-Northeast',
         NNW: 'North-Northwest',
         ENE: 'East-Northeast',
