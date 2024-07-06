@@ -622,7 +622,33 @@
     .container{
         display:none;
     }
-  
+    .container-2{
+        width:844px;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+    }
+    .pic-div{
+        width:100px;
+    }
+    .pic{
+        width:700px;
+    }
+    .column-1{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 700px;
+
+    }
+    .column-3{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 700px;
+
+    }
+    .pressure{
+        font-size: 25px;
+    }
     
 }
     

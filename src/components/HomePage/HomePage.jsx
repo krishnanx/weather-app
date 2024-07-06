@@ -285,17 +285,7 @@ const HomePage = () => {
                     {pressure}
                 </div>
             </div>
-            
-           
-           
-                
         </div>
- 
-       
-        
-        
-        
-         
     </div>
   )
 }

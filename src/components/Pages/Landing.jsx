@@ -6,7 +6,6 @@ const Landing = () => {
   return (
     <div className='L'>
         <HomePage/>
-        <Weather/>
     </div>
   )
 }
