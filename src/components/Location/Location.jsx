@@ -20,7 +20,7 @@ export const fetchLocation = async (setLocDataError, setLocData, setCity) => {
     const { latitude, longitude } = position.coords;
     const my_city = await fetchCity(latitude, longitude, setCity);
     console.log(my_city)
-
+    setLocDataError(false);
     return my_city
 
     // function success(pos){

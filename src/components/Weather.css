@@ -211,6 +211,9 @@
         height:300px;
 
     }
+    .location{
+        width:300px;
+    }
     .main-w{
         display: flex;
         flex-direction: row;
