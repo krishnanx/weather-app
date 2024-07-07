@@ -19,7 +19,7 @@ const IconContext = ({children}) => {
             1006: { day: SCloudy, night: NCloudy },
             1009: { day: SCloudy, night: NCloudy },
             1030: { day: SMist, night: NMist },
-            1063: { day: Rain, night: 'Patchy rain possible' },
+            1063: { day: Rain, night:Rain },
             1066: { day: 'Patchy snow possible', night: 'Patchy snow possible' },
             1069: { day: 'Patchy sleet possible', night: 'Patchy sleet possible' },
             1072: { day: 'Patchy freezing drizzle possible', night: 'Patchy freezing drizzle possible' },

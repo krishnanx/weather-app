@@ -6,21 +6,29 @@ import Wcontext from './components/contexts/Wcontext'
 import DataContext from './components/contexts/DataContext'
 import ErrorContext from './components/contexts/ErrorContext'
 import IconContext from './components/contexts/IconContext'
+import LocDataErrorContext from './components/contexts/LocDataErrorContext'
+import LocDataContext from './components/contexts/LocDataContext'
 function App() {
   
 
   return (
    <div>
-    <IconContext>
-      <ErrorContext>
-        <DataContext>
-          <Wcontext >
-            <Navbar/>
-            <Landing/>
-          </Wcontext>
-        </DataContext>
-      </ErrorContext>
-    </IconContext>
+    <LocDataContext>
+      <LocDataErrorContext>
+        <IconContext>
+          <ErrorContext>
+            <DataContext>
+              <Wcontext >
+                <Navbar/>
+                <Landing/>
+              </Wcontext>
+            </DataContext>
+          </ErrorContext>
+        </IconContext>
+      </LocDataErrorContext>
+    
+    </LocDataContext>
+    
    
     
    

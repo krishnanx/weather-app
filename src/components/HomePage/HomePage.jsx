@@ -102,7 +102,7 @@ const HomePage = () => {
       }, []);
        const HandleClick=(value)=>{
         const weatherData = fetchData(value,setError);
-        
+        console.log(weatherData)
         weatherData.then(json=>{
             setData(json);
             console.log(json);
