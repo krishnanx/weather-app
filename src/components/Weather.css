@@ -201,7 +201,6 @@
   }
 @media screen and (min-width:300px) and (max-width:625px)  {
     .DATA{
-        width:325px;
         display: flex;
         flex-direction: column;
         justify-content:space-evenly;
