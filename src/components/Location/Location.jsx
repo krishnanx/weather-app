@@ -16,12 +16,15 @@ export const fetchLocation = async (setLocDataError, setLocData, setCity) => {
     const position = await new Promise((resolve, reject) => {
       window.navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-
-    const { latitude, longitude } = position.coords;
-    const my_city = await fetchCity(latitude, longitude, setCity);
-    console.log(my_city)
+    console.log(position)
+    const response=position.coords
+    const latitude=response.latitude
+    const longitude=response.longitude;
+    console.log(latitude,longitude)
+    //const my_city = await fetchCity(latitude, longitude, setCity);
+    //console.log(my_city)
     setLocDataError(false);
-    return my_city
+    return /*my_city,*/{latitude,longitude}
 
     // function success(pos){
 
@@ -30,6 +33,7 @@ export const fetchLocation = async (setLocDataError, setLocData, setCity) => {
     //console.log( response.latitude)
     //return response.latitude;
   } catch (error) {
+    console.log("error")
     setLocDataError(true);
   }
 };
@@ -59,7 +63,9 @@ const fetchCity = async (latitude, longitude, setCity) => {
   };
   try {
     const response = await axios.request(options);
-    const position = response.data.address.city;
+    console.log(response)
+    const position = response.data.address.city===undefined?response.data.address.county:response.data.address.city;
+    
     setCity(position)
     console.log(position);
     return position;

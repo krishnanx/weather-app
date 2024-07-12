@@ -12,12 +12,15 @@ import { fetchLocation } from "./Location/Location";
 import { LocData } from "./contexts/LocDataContext";
 import { LocError } from "./contexts/LocDataErrorContext";
 
-export const fetchData = async (myCity, setError) => {
+export const fetchData = async (myCity,latitude,longitude, setError) => {
   try {
     console.log("city data", myCity);
-    const response = await axios.get(
-      `https://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${myCity}&aqi=yes`
-    );
+    console.log(myCity)
+    console.log(latitude)
+    console.log(longitude)
+    const url=(latitude===null&&longitude===null)?(`https://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${myCity}&aqi=yes`):(`https://api.weatherapi.com/v1/current.json?key=0fd2b9d39c994c0890c64412240207&q=${latitude},${longitude}&aqi=yes`)
+    console.log(url)
+    const response=await axios.get(url)
     //console.log(response)
     const json = response.data;
     //console.log(json)
@@ -83,8 +86,12 @@ const Weather = () => {
     City,
     setError
   ) => {
-    const city = await fetchLocation(setLocDataError, setLocData, setCity);
-    const weatherData = fetchData(city, setError);
+    let city=null;
+    /*city,*/const value= await fetchLocation(setLocDataError, setLocData, setCity);
+    console.log(value)
+    const latitude=value.latitude;
+    const longitude=value.longitude;
+    const weatherData = fetchData(city,latitude,longitude, setError);
     weatherData.then((json) => {
       setData(json);
       console.log(json);

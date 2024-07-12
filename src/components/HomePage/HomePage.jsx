@@ -101,7 +101,9 @@ const HomePage = () => {
         };
       }, []);
        const HandleClick=(value)=>{
-        const weatherData = fetchData(value,setError);
+        let latitude=null;
+        let longitude=null;
+        const weatherData = fetchData(value,latitude,longitude,setError);
         console.log(weatherData)
         weatherData.then(json=>{
             setData(json);
