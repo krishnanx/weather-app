@@ -579,10 +579,10 @@
         justify-content:space-between;
         flex-direction: row;
         width:150px;
-        height: 80px;;
+        height: 80px;
     }
     .S{
-        margin-left: 10px;
+     margin-left: 10px;
        
     }
     .speed{
@@ -614,6 +614,9 @@
     }
     .pm10{
         font-size: 16px;
+    }
+    .pressure-img-div{
+        width: 150px;
     }
 }
 @media screen and (min-width:625px) and (max-width:1000px) {
