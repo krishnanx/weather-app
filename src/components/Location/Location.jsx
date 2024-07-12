@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import { LocError } from "../contexts/LocDataErrorContext";
-export const fetchLocation = async (setLocDataError, setLocData, setCity) => {
+export const fetchLocation = async (setLocDataError, setLocData, setCity,setError) => {
   try {
     console.log("bye");
     // await window.navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -34,6 +34,7 @@ export const fetchLocation = async (setLocDataError, setLocData, setCity) => {
     //return response.latitude;
   } catch (error) {
     console.log("error")
+    setError("locError")
     setLocDataError(true);
   }
 };

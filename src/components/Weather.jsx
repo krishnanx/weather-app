@@ -84,23 +84,32 @@ const Weather = () => {
     locData,
     setCity,
     City,
-    setError
+    setError,
+    error,
+    LocDataError
   ) => {
     let city=null;
-    /*city,*/const value= await fetchLocation(setLocDataError, setLocData, setCity);
-    console.log(value)
-    const latitude=value.latitude;
-    const longitude=value.longitude;
-    const weatherData = fetchData(city,latitude,longitude, setError);
-    weatherData.then((json) => {
-      setData(json);
-      console.log(json);
-    });
+    /*city,*/const value= await fetchLocation(setLocDataError,setLocData, setCity, setError);
+    console.log(error)
+    console.log(LocDataError)
+    if(LocDataError===false){
+      console.log(value)
+      const latitude=value.latitude;
+      const longitude=value.longitude;
+      const weatherData = fetchData(city,latitude,longitude, setError);
+      weatherData.then((json) => {
+        setData(json);
+        console.log(json);
+      });
+  }
   };
 
   switch (error) {
     case null:
       content = <p></p>;
+      break;
+    case "locError":
+      content=<p>GPS is unavailable right now</p>;
       break;
     case true:
       content = <p>Enter correct city</p>;
@@ -163,7 +172,9 @@ const Weather = () => {
               locData,
               setCity,
               City,
-              setError
+              setError,
+              error,
+              LocDataError
             )
           }
         >
